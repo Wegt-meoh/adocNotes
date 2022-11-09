@@ -444,54 +444,56 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="exampleblock data-line-0">
+<div class="exampleblock data-line-6">
 <div class="content">
-<div class="paragraph data-line-1">
-<p>const object1 = {};</p>
-</div>
-<div class="paragraph data-line-3">
-<p>Object.defineProperty(object1, "property1", {
+<div class="listingblock data-line-9">
+<div class="title">example</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const object1 = {};
+
+Object.defineProperty(object1, "property1", {
   value: 42,
   writable: false,
-});</p>
-</div>
-<div class="paragraph data-line-8">
-<p>object1.property1 = 77;</p>
-</div>
-<div class="paragraph data-line-11">
-<p>console.log(object1.property1);</p>
-</div>
-</div>
+});
+
+object1.property1 = 77;
+// throws an error in strict mode
+
+console.log(object1.property1);
+// expected output: 42</code></pre>
 </div>
 </div>
 </div>
-<div class="sect1 data-line-12">
+</div>
+</div>
+</div>
+<div class="sect1 data-line-15">
 <h2 id="_syntax">Syntax</h2>
 <div class="sectionbody">
-<div class="exampleblock data-line-13">
+<div class="exampleblock data-line-16">
 <div class="content">
-<div class="paragraph data-line-14">
+<div class="paragraph data-line-17">
 <p>Object.defineProperty(obj, prop, descriptor)</p>
 </div>
 </div>
 </div>
-<div class="ulist data-line-16">
+<div class="ulist data-line-19">
 <ul>
-<li class="data-line-16">
+<li class="data-line-19">
 <p>obj</p>
-<div class="paragraph data-line-18">
+<div class="paragraph data-line-21">
 <p>The object on which to define the property.</p>
 </div>
 </li>
-<li class="data-line-19">
+<li class="data-line-22">
 <p>prop</p>
-<div class="paragraph data-line-21">
+<div class="paragraph data-line-24">
 <p>The name or Symbol of the property to be defined or modified.</p>
 </div>
 </li>
-<li class="data-line-22">
+<li class="data-line-25">
 <p>descriptor</p>
-<div class="paragraph data-line-24">
+<div class="paragraph data-line-27">
 <p>The descriptor for the property being defined or modified.</p>
 </div>
 </li>
@@ -499,38 +501,38 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-<div class="sect1 data-line-26">
+<div class="sect1 data-line-29">
 <h2 id="_description">Description</h2>
 <div class="sectionbody">
-<div class="ulist data-line-27">
+<div class="ulist data-line-30">
 <ul>
-<li class="data-line-27">
+<li class="data-line-30">
 <p>By default, properties added using Object.defineProperty() are not writable, not enumerable, and not configurable.</p>
 </li>
-<li class="data-line-28">
+<li class="data-line-31">
 <p>Property descriptors present in objects come in two main flavors: data descriptors and accessor descriptors.</p>
 </li>
 </ul>
 </div>
-<div class="sect2 data-line-30">
+<div class="sect2 data-line-33">
 <h3 id="_data_descriptor_has">data descriptor has</h3>
-<div class="ulist data-line-31">
+<div class="ulist data-line-34">
 <ul>
-<li class="data-line-31">
+<li class="data-line-34">
 <p>value(default:undefined)</p>
-<div class="exampleblock data-line-33">
+<div class="exampleblock data-line-36">
 <div class="content">
-<div class="paragraph data-line-34">
+<div class="paragraph data-line-37">
 <p>The value associated with the property. Can be any valid JavaScript value (number, object, function, etc.).</p>
 </div>
 </div>
 </div>
 </li>
-<li class="data-line-37">
-<p>writable</p>
-<div class="exampleblock data-line-39">
+<li class="data-line-40">
+<p>writable(default:false)</p>
+<div class="exampleblock data-line-42">
 <div class="content">
-<div class="paragraph data-line-40">
+<div class="paragraph data-line-43">
 <p>true if the value associated with the property may be changed with an assignment operator.</p>
 </div>
 </div>
@@ -539,25 +541,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2 data-line-43">
+<div class="sect2 data-line-46">
 <h3 id="_accessor_descriptor_has">accessor descriptor has</h3>
-<div class="ulist data-line-44">
+<div class="ulist data-line-47">
 <ul>
-<li class="data-line-44">
+<li class="data-line-47">
 <p>get(default:undefined)</p>
-<div class="exampleblock data-line-46">
+<div class="exampleblock data-line-49">
 <div class="content">
-<div class="paragraph data-line-47">
+<div class="paragraph data-line-50">
 <p>A function which serves as a getter for the property, or undefined if there is no getter. When the property is accessed, this function is called without arguments and with this set to the object through which the property is accessed (this may not be the object on which the property is defined due to inheritance). The return value will be used as the value of the property.</p>
 </div>
 </div>
 </div>
 </li>
-<li class="data-line-49">
+<li class="data-line-52">
 <p>set(default:undefined)</p>
-<div class="exampleblock data-line-51">
+<div class="exampleblock data-line-54">
 <div class="content">
-<div class="paragraph data-line-52">
+<div class="paragraph data-line-55">
 <p>A function which serves as a setter for the property, or undefined if there is no setter. When the property is assigned, this function is called with one argument (the value being assigned to the property) and with this set to the object through which the property is assigned.</p>
 </div>
 </div>
@@ -566,26 +568,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </div>
-<div class="sect2 data-line-55">
+<div class="sect2 data-line-58">
 <h3 id="_both_have">both have</h3>
-<div class="ulist data-line-56">
+<div class="ulist data-line-59">
 <ul>
-<li class="data-line-56">
+<li class="data-line-59">
 <p>configurable(default:false)</p>
-<div class="exampleblock data-line-58">
+<div class="exampleblock data-line-61">
 <div class="content">
-<div class="paragraph data-line-59">
+<div class="paragraph data-line-62">
 <p>when this is set to false,</p>
 </div>
-<div class="ulist data-line-61">
+<div class="ulist data-line-64">
 <ul>
-<li class="data-line-61">
+<li class="data-line-64">
 <p>the type of this property cannot be changed between data property and accessor property</p>
 </li>
-<li class="data-line-62">
+<li class="data-line-65">
 <p>the property may not be deleted</p>
 </li>
-<li class="data-line-63">
+<li class="data-line-66">
 <p>other attributes of its descriptor cannot be changed (however, if it&#8217;s a data descriptor with writable: true, the value can be changed, and writable can be changed to false).</p>
 </li>
 </ul>
@@ -593,11 +595,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </li>
-<li class="data-line-66">
+<li class="data-line-69">
 <p>enumerable(default:false)</p>
-<div class="exampleblock data-line-68">
+<div class="exampleblock data-line-71">
 <div class="content">
-<div class="paragraph data-line-69">
+<div class="paragraph data-line-72">
 <p>true if and only if this property shows up during enumeration of the properties on the corresponding object.</p>
 </div>
 </div>
@@ -605,19 +607,333 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </div>
-<div class="admonitionblock note data-line-73">
+<div class="admonitionblock note data-line-76">
 <table>
 <tr>
 <td class="icon">
 <div class="title">Note</div>
 </td>
 <td class="content">
-<div class="paragraph data-line-74">
+<div class="paragraph data-line-77">
 <p>Bear in mind that these attributes are not necessarily the descriptor&#8217;s own properties. Inherited properties will be considered as well. In order to ensure these defaults are preserved, you might freeze existing objects in the descriptor object&#8217;s prototype chain upfront, specify all options explicitly, or point to null with Object.create(null).</p>
 </div>
 </td>
 </tr>
 </table>
+</div>
+<div class="exampleblock data-line-81">
+<div class="title">Example 1. Creating a property</div>
+<div class="content">
+<div class="listingblock data-line-83">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const o = {}; // Creates a new object
+
+// Example of an object property added
+// with defineProperty with a data property descriptor
+Object.defineProperty(o, "a", {
+  value: 37,
+  writable: true,
+  enumerable: true,
+  configurable: true,
+});
+// 'a' property exists in the o object and its value is 37
+
+// Example of an object property added
+// with defineProperty with an accessor property descriptor
+let bValue = 38;
+Object.defineProperty(o, "b", {
+  get() {
+    return bValue;
+  },
+  set(newValue) {
+    bValue = newValue;
+  },
+  enumerable: true,
+  configurable: true,
+});
+o.b; // 38
+// 'b' property exists in the o object and its value is 38
+// The value of o.b is now always identical to bValue,
+// unless o.b is redefined
+
+// You cannot try to mix both:
+Object.defineProperty(o, "conflict", {
+  value: 0x9f91102,
+  get() {
+    return 0xdeadbeef;
+  },
+});
+// throws a TypeError: value appears
+// only in data descriptors,
+// get appears only in accessor descriptors</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock data-line-89">
+<div class="title">Example 2. Modifying a property</div>
+<div class="content">
+<div class="listingblock data-line-92">
+<div class="title">writable attributes</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const o = {}; // Creates a new object
+
+Object.defineProperty(o, "a", {
+  value: 37,
+  writable: false,
+});
+
+console.log(o.a); // 37
+o.a = 25; // No error thrown
+// (it would throw in strict mode,
+// even if the value had been the same)
+console.log(o.a); // 37; the assignment didn't work
+
+// strict mode
+(() =&gt; {
+  "use strict";
+  const o = {};
+  Object.defineProperty(o, "b", {
+    value: 2,
+    writable: false,
+  });
+  o.b = 3; // throws TypeError: "b" is read-only
+  return o.b; // returns 2 without the line above
+})();</code></pre>
+</div>
+</div>
+<div class="listingblock data-line-120">
+<div class="title">Enumerable attribute</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const o = {};
+Object.defineProperty(o, "a", {
+  value: 1,
+  enumerable: true,
+});
+Object.defineProperty(o, "b", {
+  value: 2,
+  enumerable: false,
+});
+Object.defineProperty(o, "c", {
+  value: 3,
+}); // enumerable defaults to false
+/**
+ * enumerable defaults to true
+ * when creating a property by setting it
+ */
+o.d = 4;
+Object.defineProperty(o, Symbol.for("e"), {
+  value: 5,
+  enumerable: true,
+});
+Object.defineProperty(o, Symbol.for("f"), {
+  value: 6,
+  enumerable: false,
+});
+
+for (const i in o) {
+  console.log(i);
+}
+// Logs 'a' and 'd' (always in that order)
+
+Object.keys(o); // ['a', 'd']
+
+o.propertyIsEnumerable("a"); // true
+o.propertyIsEnumerable("b"); // false
+o.propertyIsEnumerable("c"); // false
+o.propertyIsEnumerable("d"); // true
+o.propertyIsEnumerable(Symbol.for("e")); // true
+o.propertyIsEnumerable(Symbol.for("f")); // false
+
+const p = { ...o };
+p.a; // 1
+p.b; // undefined
+p.c; // undefined
+p.d; // 4
+p[Symbol.for("e")]; // 5
+p[Symbol.for("f")]; // undefined</code></pre>
+</div>
+</div>
+<div class="listingblock data-line-171">
+<div class="title">Configurable attribute</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const o = {};
+Object.defineProperty(o, "a", {
+  get() {
+    return 1;
+  },
+  configurable: false,
+});
+
+Object.defineProperty(o, "a", {
+  configurable: true,
+}); // throws a TypeError
+Object.defineProperty(o, "a", {
+  enumerable: true,
+}); // throws a TypeError
+Object.defineProperty(o, "a", {
+  set() {},
+}); // throws a TypeError (set was undefined previously)
+Object.defineProperty(o, "a", {
+  get() {
+    return 1;
+  },
+}); // throws a TypeError
+// (even though the new get does exactly the same thing)
+Object.defineProperty(o, "a", {
+  value: 12,
+}); // throws a TypeError // ('value' can be changed when 'configurable' is false but not in this case due to 'get' accessor)
+
+console.log(o.a); // 1
+delete o.a; // Nothing happens
+console.log(o.a); // 1
+
+Object.defineProperty(o, "b", {
+  writable: true,
+  configurable: false,
+});
+console.log(o.b); // undefined
+Object.defineProperty(o, "b", {
+  value: 1,
+}); // Even when configurable is false, because the object is writable, we may still replace the value
+console.log(o.b); // 1
+Object.defineProperty(o, "b", {
+  writable: false,
+});
+Object.defineProperty(o, "b", {
+  value: 1,
+}); // TypeError: because the property is neither writable nor configurable, it cannot be modified</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock data-line-108">
+<div class="title">Example 3. Adding properties and default values</div>
+<div class="content">
+<div class="listingblock data-line-110">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">const o = {};
+
+o.a = 1;
+// is equivalent to:
+Object.defineProperty(o, "a", {
+  value: 1,
+  writable: true,
+  configurable: true,
+  enumerable: true,
+});
+
+// On the other hand,
+Object.defineProperty(o, "a", { value: 1 });
+// is equivalent to:
+Object.defineProperty(o, "a", {
+  value: 1,
+  writable: false,
+  configurable: false,
+  enumerable: false,
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock data-line-116">
+<div class="title">Example 4. Custom Setters and Getters</div>
+<div class="content">
+<div class="listingblock data-line-118">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">function Archiver() {
+  let temperature = null;
+  const archive = [];
+
+  Object.defineProperty(this, "temperature", {
+    get() {
+      console.log("get!");
+      return temperature;
+    },
+    set(value) {
+      temperature = value;
+      archive.push({ val: temperature });
+    },
+  });
+
+  this.getArchive = () =&gt; archive;
+}
+
+const arc = new Archiver();
+arc.temperature; // 'get!'
+arc.temperature = 11;
+arc.temperature = 13;
+arc.getArchive(); // [{ val: 11 }, { val: 13 }]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="exampleblock data-line-124">
+<div class="title">Example 5. Inheritance of properties</div>
+<div class="content">
+<div class="listingblock data-line-127">
+<div class="title">shared</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">function MyClass() {}
+
+let value;
+Object.defineProperty(MyClass.prototype, "x", {
+  get() {
+    return value;
+  },
+  set(x) {
+    value = x;
+  },
+});
+
+const a = new MyClass();
+const b = new MyClass();
+a.x = 1;
+console.log(b.x); // 1</code></pre>
+</div>
+</div>
+<div class="listingblock data-line-147">
+<div class="title">private</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">function MyClass() {}
+
+Object.defineProperty(MyClass.prototype, "x", {
+  get() {
+    return this.storedX;
+  },
+  set(x) {
+    this.storedX = x;
+  },
+});
+
+const a = new MyClass();
+const b = new MyClass();
+a.x = 1;
+console.log(b.x); // undefined</code></pre>
+</div>
+</div>
+<div class="listingblock data-line-166">
+<div class="title">in data descriptor</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">//Unlike accessor properties, value properties are always set on the object itself, not on a prototype
+function MyClass() {}
+
+MyClass.prototype.x = 1;
+Object.defineProperty(MyClass.prototype, "y", {
+  writable: false,
+  value: 1,
+});
+
+const a = new MyClass();
+a.x = 2;
+console.log(a.x); // 2
+console.log(MyClass.prototype.x); // 1
+a.y = 2; // Ignored, throws in strict mode
+console.log(a.y); // 1
+console.log(MyClass.prototype.y); // 1</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -625,7 +941,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-11-09 09:39:07 +0800
+Last updated 2022-11-09 14:28:38 +0800
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
